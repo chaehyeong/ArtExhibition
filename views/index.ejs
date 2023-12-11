@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>미에뜰 전시</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap');
+      @import url('https://fonts.googleapis.com/css?family=Black+Han+Sans&display=swap&subset=korean');
+      @font-face {
+          font-family: 'GmarketSansMedium';
+          src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+          font-weight: normal;
+          font-style: normal;
+      }
+      body{
+          user-select: none;
+      }
+      nav{
+          position: relative;
+          z-index: 2;
+          padding-left: 3vw !important;
+          padding-right: 3vw !important;
+          height: 10vh;
+          font-family: 'GmarketSansMedium';
+      }
+      .navbar-brand{
+          font-size: x-large;
+          font-weight: 500;
+          padding: 0;
+      }
+      .offcanvas-body{
+          font-size: medium;
+      }
+      .main{
+          z-index: 1;
+          top: 0;
+          position: absolute;
+          width: 100vw;
+          height: 100vh;
+          background-image: url('/image/main.png');
+          background-color: rgba(0, 0, 0, 0.5);
+          background-blend-mode: lighten;
+          background-size: cover;
+          font-family: 'GmarketSansMedium';
+          font-weight: 600;
+      }
+      .box{
+        color: white;
+        position: relative;
+        top: 20vh;
+        left: 10vw;
+        margin: 0;
+        width: 90vw;
+        height: 50vh;
+      }
+      .box > p{
+        position: absolute;
+        text-shadow: 3px 3px 6px black;
+        margin: 0;
+      }
+      .name{
+        font-family: 'Black Han Sans', sans-serif;
+        font-weight: normal;
+        font-size: 20vh;
+      }
+      .intro{
+        font-size: 3vh;
+        top: 28vh;
+        left: 0.5vw;
+      }
+      .date{
+        position: absolute;
+        margin: 1rem 2rem;
+        font-size: 7vh;
+        bottom: 10vh;
+        right: 15vw;
+      }
+
+      @media screen and (max-width: 768px) {
+        .name{
+          font-size: 18vh;
+        }
+        .intro{
+          top: 25vh;
+          font-size: 3vh;
+        }
+        .date{
+          left: 0;
+          font-size: 5vh;
+        }
+      }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Offcanvas navbar large">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">미에뜰 전시</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2" aria-controls="offcanvasNavbar2" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbar2" aria-labelledby="offcanvasNavbar2Label">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasNavbar2Label">미에뜰 전시</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="/project">Projects</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">About</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    </nav>
+    <main class="main">
+      <div class="box">
+        <p class="name">미에뜰</p>
+        <p class="intro">2023학년도 현대청운고등학교<br>미술창작대회 작품전</p>
+      </div>
+      <p class="date">2023.12.11~</p>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

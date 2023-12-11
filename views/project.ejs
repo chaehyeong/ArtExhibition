@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Projects</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Diphylleia&family=Gowun+Dodum&display=swap');
+        @font-face {
+            font-family: 'GmarketSansMedium';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        body{
+            user-select: none;
+        }
+        nav{
+            padding-left: 3vw !important;
+            padding-right: 3vw !important;
+            height: 10vh;
+            font-family: 'GmarketSansMedium';
+        }
+        .navbar-brand{
+            font-size: x-large;
+            font-weight: 500;
+            padding: 0;
+        }
+        .offcanvas-body{
+            font-size: medium;
+        }
+        .container{
+            width: 100vw;
+            height: 100vh;
+            margin-top: 10vh;
+            font-family: 'Gowun Dodum', sans-serif;
+        }
+        .container > div{
+            width: 80vw;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 5%;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+        .container > div > div{
+            height: 30vh;
+        }
+        .item{
+            width: 100%;
+            height: 80%;
+            cursor: pointer;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+        p{
+            margin: 1% 0;
+        }
+        #show{
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            top: 0%;
+            left: 0%;
+            position: fixed;
+            display: none;
+        }
+        #showImg{
+            height: 90vh;
+            width: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 60px -20px white;
+        }
+        #show > div{
+            color: white;
+        }
+        
+        @media (max-width: 500px) {
+            .container > div{
+                grid-template-columns: repeat(3, 1fr);
+            }
+            #showImg{
+                height: 70vh;
+                width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Offcanvas navbar large">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">미에뜰 전시</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2" aria-controls="offcanvasNavbar2" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbar2" aria-labelledby="offcanvasNavbar2Label">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasNavbar2Label">미에뜰 전시</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/project">Projects</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/upload">Upload</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div>
+            <% lists.forEach(function(item){ %>
+            <div>
+                <img class="item" src="<%=item.image%>">
+                <p class="title"><%=item.title%> | <%=item.name%></p>
+            </div>
+            <% }) %>
+        </div>
+    </div>
+
+    <% lists.forEach(function(item){ %>
+    <div id="show">
+        <img id="showImg" src="<%=item.image%>">
+    </div>
+    <% }) %>
+
+    <script>
+        let clickImgs = document.querySelectorAll('.item');
+        let show = document.querySelector('#show');
+        let showImg = document.querySelector('#showImg');
+        let myAry = Array.from(clickImgs);
+
+        const result = myAry.map(function (item) {
+            item.addEventListener('click', () => {
+                let imgData = item.getAttribute("src");
+                showImg.setAttribute("src", imgData);
+                show.style.display = "block";
+                item.setAttribute("border-radious", 0);
+            })
+        });
+
+        show.addEventListener('click', () => {
+            show.style.display = "none";
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
